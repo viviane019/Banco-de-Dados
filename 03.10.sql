@@ -127,8 +127,48 @@ WHERE Curso_Id = 4;
 
 -- listar todos alunos
 SELECT * FROM Aluno;
+SELECT * FROM CURSO;
 SELECT Nome_Aluno 
 FROM Aluno;
+
+-- 1. Listar todos os alunos cadastrados
+SELECT * FROM Aluno;
+
+-- 2. Exibir apenas os nomes e e-mails dos alunos
+SELECT Nome_Aluno, Email FROM Aluno;
+
+-- 3. Listar cursos com carga horária maior que 30 horas
+SELECT * FROM Curso
+WHERE Carga_Horaria > 30;
+
+-- 4. Exibir cursos que estão inativos
+SELECT * FROM Curso
+WHERE Status = 'Inativo';
+
+-- 5. Buscar alunos nascidos após o ano 1995
+SELECT * FROM Aluno
+WHERE Data_Nascimento > '1995-12-31';
+
+-- 6. Exibir avaliações com nota acima de 9
+SELECT * FROM Avaliacoes
+WHERE Nota > 9;
+
+-- 7. Contar quantos cursos estão cadastrados
+SELECT COUNT(*) AS Total_Cursos FROM Curso;
+
+-- 8. Listar os 3 cursos com maior carga horária
+SELECT * FROM Curso
+ORDER BY Carga_Horaria DESC
+LIMIT 3;
+
+
+-- Criar índice no campo Email da tabela Aluno
+CREATE INDEX idx_email_aluno
+ON Aluno (Email);
+
+SELECT * FROM Aluno
+WHERE Email = 'joao.silva.novo@email.com';
+
 
 
 
